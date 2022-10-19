@@ -1,0 +1,57 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+
+.background{
+	-fx-background-color: #1d1d1d;
+}
+
+*{
+	-fx-font-family: Helvetica, Arial, sans-serif;
+}
+
+.label {
+    -fx-font-size: 12pt;
+    -fx-font-weight: 900;
+    -fx-text-fill: white;
+    -fx-opacity: 0.8;
+}
+
+.button{  
+    -fx-border-color: #e2e2e2;
+    -fx-border-width: 2;
+    -fx-background-radius: 0;
+    -fx-background-color: #1d1d1d;
+    -fx-font-weight: 900;
+    -fx-font-size: 10pt;
+    -fx-text-fill: #d8d8d8;
+    -fx-background-insets: 0 0 0 0, 0, 1, 2;
+}
+
+.button:hover {
+    -fx-background-color: #3a3a3a;
+}
+
+.button:pressed, .button:default:hover:pressed {
+  -fx-background-color: white;
+  -fx-text-fill: #1d1d1d;
+}
+
+.textfield{
+    -fx-border-color: #e2e2e2;
+    -fx-border-width: 2;
+    -fx-background-radius: 0;
+    -fx-background-color: #1d1d1d;
+    -fx-font-size: 12pt;
+    -fx-text-fill: #d8d8d8;
+}
+
+#green-text{
+	-fx-text-fill: rgb(60,255,60);
+}
+
+#red-text{
+	-fx-text-fill: rgb(255,60,60);
+}
+
+#yellow-text{
+	-fx-text-fill: rgb(255,255,60);
+}
