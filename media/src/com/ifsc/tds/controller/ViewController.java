@@ -1,7 +1,11 @@
 package com.ifsc.tds.controller;
 
+import java.util.Optional;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
@@ -58,6 +62,18 @@ public class ViewController {
     	txtNota2.setText("");
     	txtNota3.setText("");
     	txtNota4.setText("");
+    }
+    
+    public boolean onCloseQuery() {
+    	Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+    	alert.setTitle("Pergunta");
+    	ButtonType btnNo = ButtonType.NO;
+    	ButtonType btnYes = ButtonType.YES;
+    	
+    	alert.getButtonTypes().setAll(btnYes, btnNo);
+    	Optional<ButtonType> optionSelected = alert.showAndWait();
+    	
+    	return optionSelected.get() == btnYes ? true : false;
     }
 
 }
