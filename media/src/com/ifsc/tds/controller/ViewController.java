@@ -56,6 +56,8 @@ public class ViewController {
     		lblResultado.setId("red-text");
     	}
 	} catch (NumberFormatException e) {
+		
+		//text to string
 		StringWriter sw = new StringWriter();
 		PrintWriter pw = new PrintWriter(sw);
 		e.printStackTrace(pw);
@@ -82,6 +84,8 @@ public class ViewController {
 		expContent.add(label, 0, 0);
 		expContent.add(textArea, 0, 1);
 		alert.getDialogPane().setExpandableContent(expContent);
+		
+		//show alert
 		alert.showAndWait();
 	}
     	
