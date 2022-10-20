@@ -34,7 +34,7 @@ public class ViewController {
     	lblMedia.setText(""+media);
 
     	if (media >= 7) {
-    		lblResultado.setText("Aprovado");
+    		lblResultado.setText("GAY");
     		lblResultado.setId("green-text");
     	}
     	else if(media >= 5) {
