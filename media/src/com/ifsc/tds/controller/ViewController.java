@@ -1,13 +1,19 @@
 package com.ifsc.tds.controller;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.util.Optional;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Priority;
 
 public class ViewController {
 
@@ -49,8 +55,34 @@ public class ViewController {
     		lblResultado.setText("Reprovado");
     		lblResultado.setId("red-text");
     	}
-	} catch (Exception e) {
+	} catch (NumberFormatException e) {
+		StringWriter sw = new StringWriter();
+		PrintWriter pw = new PrintWriter(sw);
+		e.printStackTrace(pw);
+		String textError = sw.toString();
 		
+		//show error
+		Alert alert = new Alert(AlertType.ERROR);
+		alert.setTitle("Erro");
+		alert.setHeaderText("Aconteceu um erro de corversão numérica.");
+		
+		Label label = new Label("Segue a pilha de exceção");
+		
+		TextArea textArea = new TextArea(textError);
+		textArea.setEditable(false);
+		textArea.setWrapText(true);
+		
+		textArea.setMaxWidth(Double.MAX_VALUE);
+		textArea.setMaxHeight(Double.MAX_VALUE);
+		GridPane.setVgrow(textArea, Priority.ALWAYS);
+		GridPane.setHgrow(textArea, Priority.ALWAYS);
+		
+		GridPane expContent = new GridPane();
+		expContent.setMaxWidth(Double.MAX_VALUE);
+		expContent.add(label, 0, 0);
+		expContent.add(textArea, 0, 1);
+		alert.getDialogPane().setExpandableContent(expContent);
+		alert.showAndWait();
 	}
     	
     	
